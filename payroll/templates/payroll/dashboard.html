@@ -1,0 +1,36 @@
+{% extends 'payroll/base.html' %}
+{% block content %}
+<h3>Dashboard</h3>
+<div class="row mt-4">
+    <div class="col-md-4">
+        <div class="card text-white bg-primary mb-3">
+            <div class="card-body">
+                <h5 class="card-title">Total Employees</h5>
+                <p class="card-text display-6">{{ total_employees }}</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card text-white bg-success mb-3">
+            <div class="card-body">
+                <h5 class="card-title">Present Today ({{ today }})</h5>
+                <p class="card-text display-6">{{ present_today }}</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card text-white bg-warning mb-3">
+            <div class="card-body">
+                <h5 class="card-title">Total Salary This Month ({{ month }}/{{ year }})</h5>
+                <p class="card-text display-6">₹{{ total_salary|floatformat:2 }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="mt-4">
+    <h4>Quick Links</h4>
+    <a href="{% url 'employee_list' %}" class="btn btn-primary btn-sm">Employees</a>
+    <a href="{% url 'attendance_list' %}" class="btn btn-success btn-sm">Attendance</a>
+</div>
+{% endblock %}

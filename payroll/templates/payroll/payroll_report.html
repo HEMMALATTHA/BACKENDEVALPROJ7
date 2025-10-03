@@ -1,0 +1,17 @@
+{% extends 'payroll/base.html' %}
+{% block content %}
+<h3>Payroll Report for {{ month }}/{{ year }}</h3>
+<a href="{% url 'payroll_export_excel' month year %}" class="btn btn-success btn-sm">Export Excel</a>
+<a href="{% url 'payroll_export_pdf' month year %}" class="btn btn-primary btn-sm">Export PDF</a>
+<table class="table table-striped table-bordered mt-3">
+<tr><th>Employee</th><th>Working Days</th><th>Present Days</th><th>Salary Paid</th></tr>
+{% for p in payrolls %}
+<tr>
+<td>{{ p.employee.first_name }} {{ p.employee.last_name }}</td>
+<td>{{ p.working_days }}</td>
+<td>{{ p.present_days }}</td>
+<td>{{ p.salary_paid }}</td>
+</tr>
+{% endfor %}
+</table>
+{% endblock %}

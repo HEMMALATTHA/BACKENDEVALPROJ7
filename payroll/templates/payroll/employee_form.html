@@ -1,0 +1,31 @@
+{% extends 'payroll/base.html' %}
+{% block content %}
+<h3>Add/Edit Employee</h3>
+<form method="post">{% csrf_token %}
+<div class="mb-3">
+<label>First Name</label>
+{{ form.first_name }}
+</div>
+<div class="mb-3">
+<label>Last Name</label>
+{{ form.last_name }}
+</div>
+<div class="mb-3">
+<label>Email</label>
+{{ form.email }}
+</div>
+<div class="mb-3">
+<label>Phone</label>
+{{ form.phone }}
+</div>
+<div class="mb-3">
+<label>Position</label>
+{{ form.position }}
+</div>
+<div class="mb-3">
+<label>Salary</label>
+{{ form.salary }}
+</div>
+<button type="submit" class="btn btn-success">Save</button>
+</form>
+{% endblock %}
